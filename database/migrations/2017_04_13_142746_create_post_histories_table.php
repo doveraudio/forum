@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumUserTable extends Migration
+class CreatePostHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateForumUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('forum_user', function (Blueprint $table) {
-            $table->integer('forum_id');
+        Schema::create('post_histories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('post_id');
             $table->integer('user_id');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ class CreateForumUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forum_user');
+        Schema::dropIfExists('post_histories');
     }
 }
