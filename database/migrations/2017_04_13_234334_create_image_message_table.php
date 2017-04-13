@@ -4,19 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImageUserTable extends Migration
+class CreateImageMessageTable extends Migration
 {
-    /**
+   /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('image_user', function (Blueprint $table) {
+        //
+        Schema::create('image_message', function(Blueprint $table){
             $table->integer('image_id');
-            $table->integer('user_id');
-            $table->timestamps();
+            $table->integer('message_id');
         });
     }
 
@@ -27,6 +27,7 @@ class CreateImageUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_user');
+        //
+        Schema::dropIfExists('image_message');
     }
 }
