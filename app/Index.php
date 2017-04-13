@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Index extends Model
 {
     //
+    protected $fillable = ['title','description','created_by'];
+    
     protected $table = 'indexs';
 
     public function Forums(){

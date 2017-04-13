@@ -14,8 +14,9 @@ class CreateIndexsTable extends Migration
     public function up()
     {
         Schema::create('indexs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id'); 
             $table->string('title');
+            $table->string('description');
             $table->integer('created_by');
             $table->timestamps();
         });
