@@ -17,10 +17,12 @@ class CreateMessagesTable extends Migration
             $table->increments('id'); 
             $table->string('title');
             $table->text('body');
+            $table->integer('inbox_id');
             $table->integer('sender_id');
             $table->integer('receiver_id');
-            $table->integer('message_status_id');
+            $table->string('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
