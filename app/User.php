@@ -108,7 +108,19 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
 
     }
-    
+    /**
+     * Provides a collection of App\Message
+     *
+     * @return Collection
+     */
+    public function Message()
+    {
+
+        return $this->hasMany('App\Message');
+
+    }
+
+        
 
 
 }
