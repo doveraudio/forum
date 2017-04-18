@@ -58,9 +58,9 @@ Navbars
         <ul>
         <li>Thread</li>
             @foreach ($topic->threads as $thread)
-    <li>{{$thread->title}}</li>
+            <li>{{$thread->title}}</li>
         
-    @endforeach
+            @endforeach
         </ul>
         @endforeach
         </ul>    
