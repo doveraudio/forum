@@ -11,7 +11,10 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/**
+ *  @var \Illuminate\Database\Eloquent\Factory $factory 
+ * 'name','email','password','logged_in','banned'
+ * */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
@@ -19,6 +22,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'logged_in' => '-1',
+        'banned' => '-1',
         'remember_token' => str_random(10),
     ];
 });
@@ -31,3 +36,4 @@ $factory->define(App\Forum::class, function (Faker\Generator $faker){
         'description' => $faker->sentence(9,true)
     ];
 });
+
