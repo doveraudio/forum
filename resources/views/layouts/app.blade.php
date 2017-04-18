@@ -77,8 +77,9 @@
                 </div>
             </div>
         </nav>
-        @yield('navpanel')
+        @yield('navpanelleft')
         @yield('content')
+        @yield('navpanelright')
     </div>
 
     <!-- Scripts -->

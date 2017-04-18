@@ -81,11 +81,20 @@
                <div class="panel-body">
 <div class="row">
 <div class="col-md-1">
-@foreach ($indexes as $index)
 <ul>
+@foreach ($indexes as $index)
+
 <li>{{$index->title}}</li>
-</ul>
+<li>
+<ul>
+    @foreach ($index->forums() as $forum)
+    <li>$forum->title</li>
+        
+    @endforeach
+    </ul>
+</li>
 @endforeach
+</ul>
 </div>
 </div>
 </div>

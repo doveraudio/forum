@@ -17,8 +17,8 @@ class Forum extends Model
 
     }
 
-    public function Forums(){
-        return $this->hasMany('App\Forum','index_id','id');
+    public function Topics(){
+        return $this->hasMany('App\Topic','forum_id','id');
     }
 
     public function CreatedBy(){

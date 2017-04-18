@@ -18,7 +18,7 @@ class Topic extends Model
     }
 
     public function Threads(){
-        return $this->hasMany('App\Thread', 'id', 'thread_id');
+        return $this->hasMany('App\Thread', 'topic_id', 'id');
     }
 
     public function CreatedBy(){
