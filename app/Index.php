@@ -9,7 +9,7 @@ class Index extends Model
     //
     protected $fillable = ['title','description','created_by'];
     
-    protected $table = 'indexs';
+    protected $table = 'indexes';
 
     public function Forums(){
         return $this->hasMany('App\Forum');

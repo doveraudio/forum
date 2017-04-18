@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ForumsTableSeeder extends Seeder
+class ThreadsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class ForumsTableSeeder extends Seeder
     public function run()
     {
         //
-        $forums = factory(App\Forum::class, 25)->create();
+        $threads = factory(App\Thread::class, 50)->create();
     }
 }

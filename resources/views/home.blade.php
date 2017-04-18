@@ -36,9 +36,21 @@ Navbars
 
                 <div class="panel-body">
                     
-                        <div class="col-md-3">Left</div>
-                        <div class="col-md-3">middle</div>
-                        <div class="col-md-5">Right</div>
+                        <div class="col-md-1">Left</div>
+                        <div class="col-md-8">
+                        <div class="panel-body">
+<div class="row">
+<div class="col-md-12">
+@foreach ($indexes as $index)
+<ul>
+<li>{{$index->title}}</li>
+</ul>
+@endforeach
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="col-md-1">Right</div>
                     
                 </div>
             </div>

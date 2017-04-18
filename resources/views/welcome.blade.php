@@ -78,9 +78,17 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                Forum
-                </div>
+               <div class="panel-body">
+<div class="row">
+<div class="col-md-1">
+@foreach ($indexes as $index)
+<ul>
+<li>{{$index->title}}</li>
+</ul>
+@endforeach
+</div>
+</div>
+</div>
 
                 
             </div>

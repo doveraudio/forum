@@ -28,12 +28,63 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Forum::class, function (Faker\Generator $faker){
+$factory->define(App\Index::class, function(Faker\Generator $faker){
     return [
-        'index_id' => 1,
-        'created_by' => $faker->numberBetween(1,50),
-        'title' => $faker->word(),
-        'description' => $faker->sentence(9,true)
+        'title' => $faker->words(5,true),
+        'description' => $faker->sentence,
+        'created_by'  => 1
     ];
 });
+
+$factory->define(App\Forum::class, function (Faker\Generator $faker){
+    return [
+        'index_id'      => $faker->numberBetween(1,5),
+        'created_by'    => $faker->numberBetween(1,50),
+        'title'         => $faker->words(5,true),
+        'description'   => $faker->paragraph
+    ];
+});
+
+$factory->define(App\Topic::class, function(Faker\Generator $faker){
+return [
+    'forum_id'      => $faker->numberBetween(1,25),
+    'title'         => $faker->words(5,true),
+    'description'   => $faker->paragraph,
+    'created_by'    => $faker->numberBetween(1,50)
+];
+});
+
+$factory->define(App\Thread::class, function(Faker\Generator $faker){
+return [
+    'topic_id'      => $faker->numberBetween(1,50),
+    'title'         => $faker->words(5,true),
+    'description'   => $faker->paragraph,
+    'created_by'    => $faker->numberBetween(1,50)
+];
+});
+
+$factory->define(App\Post::class, function(Faker\Generator $faker){
+    $thread = $faker->numberBetween(1,50);
+return [
+    'thread_id'     => $thread,
+    'title'         => App\Thread::find($faker->numberBetween(1,50))->title,
+    'body'   => $faker->paragraph,
+    'has_attachments' => false,
+    'created_by'    => $faker->numberBetween(1,50)
+];
+});
+
+
+$factory->define(App\Inbox::class, function(int $id){
+    return [
+        'user_id' => $id
+    ];
+});
+
+
+$factory->define(App\Message::class, function(Faker\Generator $faker){[
+    
+
+
+];});
 

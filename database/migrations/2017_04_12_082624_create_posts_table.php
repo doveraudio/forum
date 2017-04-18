@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->boolean('has_attachments');
-            $table->integer('post_status_id');
+            $table->integer('post_status_id')->default(0);
             $table->integer('created_by');
             $table->timestamps();
         });
