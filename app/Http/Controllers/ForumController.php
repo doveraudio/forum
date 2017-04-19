@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Forum as Forum;
 class ForumController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        return App\Forum::all();
+        return Forum::all();
     }
 
     /**

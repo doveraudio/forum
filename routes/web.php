@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index',  ['indexes'=> App\Index::all()]);
+
+Route::get('forum/{id}', 'ForumController@show');
+
+Route::get('forum/{forum_id}/topic/{id}', 'TopicController@show');
+Route::get('forum/{forum_id}/topic/{topic_id}/thread/{thread_id}', 'ThreadController@show');
+Route::get('forum/{forum_id}/topic/{topic_id}/thread/{thread_id}/posts', 'PostController@index');

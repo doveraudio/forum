@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Topic as Topic;
 class TopicController extends Controller
 {
     /**
@@ -46,6 +46,7 @@ class TopicController extends Controller
     public function show($id)
     {
         //
+        return Topic::find($id);
     }
 
     /**
