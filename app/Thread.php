@@ -24,7 +24,7 @@ class Thread extends Model
 
     public function Posts(){
 
-        return $this->hasMany('App\Post', 'id', 'thread_id');
+        return $this->hasMany('App\Post', 'thread_id', 'id');
 
     }
 

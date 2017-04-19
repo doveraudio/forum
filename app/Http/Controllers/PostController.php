@@ -11,11 +11,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request,$forum_id,$topic_id,$thread_id)
     {
         //
         
-        return toJson($request);
+        return \App\Thread::find($thread_id)->Posts;
     }
 
     /**
