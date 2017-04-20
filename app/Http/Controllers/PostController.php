@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         //
         
-        return \App\Thread::find($thread_id)->Posts;
+        return collect(\App\Thread::find($thread_id)->all())->chunk(25)->last();
     }
 
     /**

@@ -86,22 +86,34 @@ Navbars
 <div class="col-md-3">
 
 <div class="panel panel-default">
+    <div class="panel-heading">
+        Latest Posts
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+            {{$user->email}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
 <div class="panel-heading">
-Navbars
+Latest Posts
 </div>
 <div class="panel-body">
 <div class="row">
 <div class="col-md-12">
-<ul>
-<li>this</li>
-<li>is</li>
-<li>radio</li>
-<li>clash</li>
-<li>from</li>
-<li>a</li>
-<li>pirate</li>
-<li>satellite</li>
-</ul>
+
+<table>
+@foreach(\App\Post::all()->chunk(15)->last() as $post)
+<tr>
+<td><strong>{{$post->title}}</strong> <u>{{$post->created_at}}</u></td>
+</tr>
+@endforeach
+
+</table>
 </div>
 </div>
 </div>
