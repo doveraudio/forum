@@ -14,6 +14,10 @@ class InboxController extends Controller
     public function index()
     {
         //
+        $user = \Auth::user();
+        return view('inbox', ['messages' => $user->inbox]);
+
+
     }
 
     /**

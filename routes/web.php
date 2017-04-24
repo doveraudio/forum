@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
+Route::get('/inbox', 'InboxController@index');
 Route::get('forum/{id}', 'ForumController@show');
 
 Route::get('forum/{forum_id}/topic/{id}', 'TopicController@show');
