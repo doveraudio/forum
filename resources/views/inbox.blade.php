@@ -59,7 +59,7 @@ Navbars
 <td>{{App\User::find($message->sender_id)->email}}</td>
 <td>{{$message->status}}</td>
   </tr>
-    @endforeach
+@endforeach
     </table>
 
 

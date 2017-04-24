@@ -42,36 +42,26 @@ Navbars
 <div class="row">
 <div class="col-md-12">
 <ul>
-<li>Index</li>
-@foreach ($indexes as $index)
-
-<li>{{$index->title}}</li>
-
-<ul>
-<li>Forum</li>
-    @foreach ($index->forums as $forum)
-    <li>{{$forum->title}}</li>
-    <ul>
-    <li>Topic</li>
-        @foreach ($forum->topics as $topic)
-    <li>{{$topic->title}}</li>
-        <ul>
-        <li>Thread</li>
-            @foreach ($topic->threads as $thread)
-            <li>{{$thread->title}}</li>
-                <ul>
-                @foreach ($thread->Posts->take(3) as $post)
-                    <li>{{$post->body}}</li>
-                @endforeach
-                </ul>
-            @endforeach
-        </ul>
-        @endforeach
-        </ul>    
-    @endforeach
-    </ul>
-
+<li>Inbox</li>
+</ul>
+<table class="table">
+<tr>
+<th>title:</th>
+<th>date:</th>
+<th>receiver:</th>
+<th>status:</th>
+</tr>
+@foreach ($messages as $message)
+<tr>
+<td>{{$message->title}}<td>
+<td>{{$message->created_at}}</td>
+<td>{{App\User::find($message->receiver_id)->email}}</td>
+<td>{{$message->status}}</td>
+</tr>
 @endforeach
+    </table>
+
+
 </div>
 </div>
 </div>
