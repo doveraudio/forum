@@ -8,7 +8,8 @@ class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Resource Properties:
+     * 'title','body','inbox_id','sender_id','receiver_id','status'
      * @return void
      */
     public function up()
@@ -17,10 +18,9 @@ class CreateMessagesTable extends Migration
             $table->increments('id'); 
             $table->string('title');
             $table->text('body');
-            $table->integer('inbox_id');
             $table->integer('sender_id');
             $table->integer('receiver_id');
-            $table->string('status');
+            $table->string('status_id');
             $table->timestamps();
             $table->softDeletes();
         });

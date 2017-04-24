@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'inbox_id'
     ];
 
     /**
@@ -27,6 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+
+
+
     /**
      * Provides the profile data of the user
      *
@@ -37,6 +41,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile');
 
     }
+
+   
     /**
      * Provides a collection of App\Image
      *
@@ -113,14 +119,25 @@ class User extends Authenticatable
      *
      * @return Collection
      */
-    public function Message()
+    public function Inbox()
     {
 
-        return $this->hasMany('App\Message');
+        return $this->hasMany('App\Message', 'receiver_id', 'id');
 
     }
 
-        
+    /**
+     * Provides a collection of App\Message
+     *
+     * @return Collection
+     */
+    public function Outbox()
+    {
 
+        return $this->hasMany('App\Message', 'sender_id', 'id');
+
+    }
+    
+    
 
 }

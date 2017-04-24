@@ -87,12 +87,20 @@ Navbars
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        Latest Posts
+        Member Area
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-            {{$user->email}}
+@if(Auth::guest())
+                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href="{{ route('register') }}">Register</a></li>
+@else
+                <li>{{Auth::user()->email}}</li>
+                <li></li>
+
+@endif
+
             </div>
         </div>
     </div>

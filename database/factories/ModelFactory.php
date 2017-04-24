@@ -75,16 +75,25 @@ return [
 });
 
 
-$factory->define(App\Inbox::class, function(int $id){
+$factory->define(App\Message::class, function(Faker\Generator $faker){
+    $sender = $faker->numberBetween(1,50);
+    $receiver = $faker->numberBetween(1,50);
+    if($sender == $receiver){
+    while($sender == $receiver){
+        $sender = $faker->numberBetween(1,50);
+        $receiver = $faker->numberBetween(1,50);
+    }
+    }
+    //echo App\User::find($receiver);
     return [
-        'user_id' => $id
-    ];
-});
+        'title'=>$faker->words(5,true),
+        'body'=> $faker->paragraph,
+        'inbox_id'=> $receiver,
+        'sender_id'=> $sender,
+        'receiver_id'=> $receiver,
+        'status'=> 'unread'
+    ]
 
 
-$factory->define(App\Message::class, function(Faker\Generator $faker){[
-    
-
-
-];});
+;});
 

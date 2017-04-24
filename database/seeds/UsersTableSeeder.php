@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'banned' => '-1'
         ]);
 
-
+        
         $users = factory(App\User::class, 50)->create();
     }
 }

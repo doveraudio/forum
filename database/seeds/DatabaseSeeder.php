@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
          $this->call(TopicsTableSeeder::class);
          $this->call(ThreadsTableSeeder::class);
          $this->call(PostsTableSeeder::class);
+         $this->call(MessageStatusesTableSeeder::class);
+         $this->call(MessagesTableSeeder::class);
     }
 }

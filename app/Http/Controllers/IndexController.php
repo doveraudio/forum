@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Index as Index;
+//use \App\Index as Index;
 class IndexController extends Controller
 {
     /**

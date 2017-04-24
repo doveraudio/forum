@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome', ['indexes'=> App\Index::all()]);
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index',  ['indexes'=> App\Index::all()]);
+Route::get('/home', 'HomeController@index');
 
 Route::get('forum/{id}', 'ForumController@show');
 

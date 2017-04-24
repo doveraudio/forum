@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Forum as Forum;
+//use \App\Forum as Forum;
 class ForumController extends Controller
 {
     /**

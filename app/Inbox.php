@@ -13,7 +13,7 @@ class Inbox extends Model
 
     public function User(){
 
-        return $this->belongsTo('User');
+        return $this->belongsTo('User', 'user_id', 'id');
 
     }
 
