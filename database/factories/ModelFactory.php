@@ -88,10 +88,9 @@ $factory->define(App\Message::class, function(Faker\Generator $faker){
     return [
         'title'=>$faker->words(5,true),
         'body'=> $faker->paragraph,
-        'inbox_id'=> $receiver,
         'sender_id'=> $sender,
         'receiver_id'=> $receiver,
-        'status'=> 'unread'
+        'status_id'=> '0'
     ]
 
 
