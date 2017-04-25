@@ -14,10 +14,10 @@ Navbars
 <div class="col-md-1">
 <ul>
 <li><a href="{{url('/home')}}">Home</a></li>
-<li><a href="{{url('/inbox')}}">Inbox</a></li>
-<li><a href="{{url('/outbox')}}">Outbox</a></li>
-<li><a href="{{--route('/profile')--}}">Profile</a></li>
-<li><a href="{{--route('/inbox')--}}">All Posts</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/inbox')}}">Inbox</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/outbox')}}">Outbox</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/profile')--}}">Profile</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/posts')--}}">All Posts</a></li>
 
 </ul>
 </div>
@@ -33,53 +33,66 @@ Navbars
                 <div class="panel-heading">Edit Profile</div>
 
                 <div class="panel-body">
-<form method="POST" action="{{url('/user/'.\Auth::user()->id.'/update')}}">
+                <div class="row">
+                <div class="container-fluid">
+                    <form method="POST" action="{{url('/user/'.\Auth::user()->id.'/update')}}">
                     {{csrf_field()}}
-                    <div class="form-group">
+                    <div class="form-group col-md-2">
                     <label for="name">User Name</label>
                     <input type="text" class="form-control" id="name" placeholder="{{\Auth::user()->name}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-2">
                     <label for="name">Email Address</label>
                     <input type="text" class="form-control" id="name" placeholder="{{\Auth::user()->email}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-2">
                     <label for="name">Password</label>
                     <input type="password" class="form-control" id="name" placeholder="">
                     <input type="password" class="form-control" id="name" placeholder="">
                     </div>
-                    </div>
+                    
                     </form>
-                       
+                </div>       
+                </div>       
 
                 
+                
+                
+                 <div class="row">
+                <div class="container-fluid">
                     <form method="POST" action="{{url('/user/'.\Auth::user()->id.'/profile/update')}}">
                     {{csrf_field()}}
-                    <div class="form-group">
+                    <div class="form-group col-md-6">
                         <label for="headline">Headline:</label>
                         <input type="text" class="form-control" id="headline">
                     </div>
-                    <div class="form-group">
-                        <label for="headline">Description:</label>
+                    <div class="form-group col-md-3">
+                        <label for="birthdate">Birthdate:</label>
                         <input type="text" class="form-control" id="headline">
                     </div>
-                    <div class="form-group">
-                        <label for="headline">Birthdate:</label>
+                    <div class="form-group col-md-3">
+                        <label for="location">Location:</label>
                         <input type="text" class="form-control" id="headline">
                     </div>
-                    <div class="form-group">
-                        <label for="headline">Location:</label>
-                        <input type="text" class="form-control" id="headline">
+                    <div class="form-group col-md-6">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" rows="8">
+                        </textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="headline">Signature:</label>
-                        <input type="text" class="form-control" id="headline">
+                    <div class="form-group col-md-6">
+                        <label for="signature">Signature:</label>
+                        <textarea class="form-control" id="headline" rows="3">
+                        </textarea>
                     </div>
-                    'image_id','headline','description','birthdate','location','signature'
                     </div>
+                    <!--'image_id','headline','description','birthdate','location','signature'-->
+               
                     </form>
-                       
-
+</div>                       
+</div>                       
+</div>                       
+</div>
+</div>
 
 </div>
 </div>
@@ -106,8 +119,9 @@ Navbars
                 <li><a href="{{ route('register') }}">Register</a></li>
 @else
                 <li>{{Auth::user()->email}}</li>
-                <li><a href="{{url('/inbox')}}">Inbox</a></li>
-                <li><a href="{{url('/')}}">Profile</a></li>
+               <li><a href="{{url('/home')}}">Home</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/inbox')}}">Inbox</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/outbox')}}">Outbox</a></li>
                 <li></li>
 
 @endif

@@ -14,11 +14,10 @@ Navbars
 <div class="col-md-1">
 <ul>
 <li><a href="{{url('/home')}}">Home</a></li>
-<li><a href="{{url('/inbox')}}">Inbox</a></li>
-<li><a href="{{url('/outbox')}}">Outbox</a></li>
-<li><a href="{{--route('/profile')--}}">Profile</a></li>
-<li><a href="{{--route('/inbox')--}}">All Posts</a></li>
-
+<li><a href="{{url('user/'.\Auth::user()->id.'/inbox')}}">Inbox</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/outbox')}}">Outbox</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/profile')--}}">Profile</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/posts')--}}">All Posts</a></li>
 </ul>
 </div>
 </div>
@@ -86,9 +85,11 @@ Navbars
                 <li><a href="{{ route('register') }}">Register</a></li>
 @else
                 <li>{{Auth::user()->email}}</li>
-                <li><a href="{{url('/inbox')}}">Inbox</a></li>
-                <li><a href="{{url('/')}}">Profile</a></li>
-                <li></li>
+<li><a href="{{url('/home')}}">Home</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/inbox')}}">Inbox</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/outbox')}}">Outbox</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/profile')--}}">Profile</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/posts')--}}">All Posts</a></li>
 
 @endif
 
