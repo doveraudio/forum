@@ -33,9 +33,50 @@ Navbars
                 <div class="panel-heading">Edit Profile</div>
 
                 <div class="panel-body">
+<form method="POST" action="{{url('/user/'.\Auth::user()->id.'/update')}}">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                    <label for="name">User Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="{{\Auth::user()->name}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="name">Email Address</label>
+                    <input type="text" class="form-control" id="name" placeholder="{{\Auth::user()->email}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="name">Password</label>
+                    <input type="password" class="form-control" id="name" placeholder="">
+                    <input type="password" class="form-control" id="name" placeholder="">
+                    </div>
+                    </div>
+                    </form>
+                       
+
+                
                     <form method="POST" action="{{url('/user/'.\Auth::user()->id.'/profile/update')}}">
                     {{csrf_field()}}
-                    
+                    <div class="form-group">
+                        <label for="headline">Headline:</label>
+                        <input type="text" class="form-control" id="headline">
+                    </div>
+                    <div class="form-group">
+                        <label for="headline">Description:</label>
+                        <input type="text" class="form-control" id="headline">
+                    </div>
+                    <div class="form-group">
+                        <label for="headline">Birthdate:</label>
+                        <input type="text" class="form-control" id="headline">
+                    </div>
+                    <div class="form-group">
+                        <label for="headline">Location:</label>
+                        <input type="text" class="form-control" id="headline">
+                    </div>
+                    <div class="form-group">
+                        <label for="headline">Signature:</label>
+                        <input type="text" class="form-control" id="headline">
+                    </div>
+                    'image_id','headline','description','birthdate','location','signature'
+                    </div>
                     </form>
                        
 
