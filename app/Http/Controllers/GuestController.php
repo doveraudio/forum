@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class OutboxController extends Controller
+class GuestController extends Controller
 {
-    //
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,11 +14,18 @@ class OutboxController extends Controller
     public function index()
     {
         //
-        $user = \Auth::user();
-        return view('user/outbox', ['messages' => $user->outbox]);
-
-
     }
+
+    /**
+     * Return the data for the welcome view.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function welcome()
+    {
+        return view('welcome', ['indexes' => \App\Index::all()]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

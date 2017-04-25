@@ -13,14 +13,12 @@ Navbars
 <div class="row">
 <div class="col-md-1">
 <ul>
-<li>this</li>
-<li>is</li>
-<li>radio</li>
-<li>clash</li>
-<li>from</li>
-<li>a</li>
-<li>pirate</li>
-<li>satellite</li>
+<li><a href="{{url('/home')}}">Home</a></li>
+<li><a href="{{url('/inbox')}}">Inbox</a></li>
+<li><a href="{{url('/outbox')}}">Outbox</a></li>
+<li><a href="{{--route('/profile')--}}">Profile</a></li>
+<li><a href="{{--route('/inbox')--}}">All Posts</a></li>
+
 </ul>
 </div>
 </div>
@@ -48,16 +46,17 @@ Navbars
 <tr>
 <th>title:</th>
 <th>date:</th>
-<th>receiver:</th>
+<th>sender:</th>
 <th>status:</th>
 </tr>
 @foreach ($messages as $message)
 <tr>
+
 <td>{{$message->title}}<td>
 <td>{{$message->created_at}}</td>
-<td>{{App\User::find($message->receiver_id)->email}}</td>
+<td>{{App\User::find($message->sender_id)->email}}</td>
 <td>{{$message->status}}</td>
-</tr>
+  </tr>
 @endforeach
     </table>
 
@@ -87,6 +86,8 @@ Navbars
                 <li><a href="{{ route('register') }}">Register</a></li>
 @else
                 <li>{{Auth::user()->email}}</li>
+                <li><a href="{{url('/inbox')}}">Inbox</a></li>
+                <li><a href="{{url('/')}}">Profile</a></li>
                 <li></li>
 
 @endif
