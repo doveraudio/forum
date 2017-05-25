@@ -33,35 +33,32 @@ Navbars
 
                 <div class="panel-body">
                     
-                        <div class="col-md-1">Left</div>
-                        <div class="col-md-8">
-                        <div class="panel-body">
-<div class="row">
-<div class="col-md-12">
-<ul>
-<li>Inbox</li>
-</ul>
-<table class="table">
-<tr>
-<th>title:</th>
-<th>date:</th>
-<th>sender:</th>
-<th>status:</th>
-</tr>
+                      
+<table id="inboxTable" class="table table-condensed table-hover table-striped display">
+<thead>
+    <tr>
+        <th>title:</th>
+        <th>date:</th>
+        <th>sender:</th>
+        <th>status:</th>
+    </tr>
+</thead>
+<tbody>
 @foreach ($messages as $message)
 <tr>
-
-<td>{{$message->title}}<td>
-<td>{{$message->created_at}}</td>
-<td>{{App\User::find($message->sender_id)->email}}</td>
-<td>{{$message->status}}</td>
-  </tr>
+    <td><a href="{{url('user/'.\Auth::user()->id.'/message/'.$message->id)}}">{{$message->title}}</a></td>
+    <td>{{$message->created_at}}</td>
+    <td>{{App\User::find($message->sender_id)->email}}</td>
+    <td>{{$message->status}}</td>
+</tr>
 @endforeach
-    </table>
-
-
+</tbody>
+</table>
 </div>
 </div>
+</div>
+</div>
+
 </div>
                         </div>
                         <div class="col-md-1">Right</div>
@@ -107,12 +104,13 @@ Latest Posts
 <div class="col-md-12">
 
 <table>
+<tbody>
 @foreach(\App\Post::all()->chunk(15)->last() as $post)
 <tr>
 <td><strong>{{$post->title}}</strong> <u>{{$post->created_at}}</u></td>
 </tr>
 @endforeach
-
+</tbody>
 </table>
 </div>
 </div>
@@ -127,3 +125,10 @@ Latest Posts
 
 
 </div>
+
+@section('appscripts')
+<script type="text/javascript" src="{{ asset('app/inbox.js')}}" ></script>
+<script>
+inbox.init();
+</script>
+@endsection

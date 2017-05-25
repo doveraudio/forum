@@ -18,6 +18,8 @@ Auth::routes();
 Route::get('home', 'HomeController@index');
 Route::get('user/{id}/inbox', 'InboxController@index');
 Route::get('user/{id}/outbox', 'OutboxController@index');
+Route::get('user/{id}/message/{message_id}', 'MessageController@viewTemplate');
+Route::post('user/{id}/message/store', 'MessageController@store');
 Route::get('user/{id}/profile', 'ProfileController@show');
 Route::get('user/{id}/profile/edit', 'ProfileController@edit');
 Route::get('user/{id}/profile/update', 'ProfileController@update');

@@ -98,4 +98,13 @@ class MessageController extends Controller
         //
         Message::delete($id);
     }
+    public function viewTemplate($id, $message_id){
+        $user = \Auth::user();
+        $message = \App\Message::find($message_id);
+    //['messages' => $user->inbox]
+    
+    return view('user/message', ['message' => $message, 'user' => $user]);
+
+
+    }
 }
