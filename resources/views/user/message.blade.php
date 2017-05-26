@@ -50,15 +50,22 @@ Navbars
 <form class="form-horizontal"role="form" method="post" action="{{url('user/'.\Auth::user()->id.'/message/store')}}">
 {{ csrf_field() }}
 	<div class="form-group">
-		<label for="email" class="col-sm-2 control-label">Email</label>
+        <label for="receiver_id" class="col-sm-2 control-label">Send To</label>
 		<div class="col-sm-4">
-			<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+			<input type="email" class="form-control" id="receiver_id" name="receiver_id" placeholder="example@domain.com" value="">
+			<input type="hidden" id="sender_id" name="sender_id" value="{{\Auth::user()->id}}">
 		</div>
 	</div>
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Message Subject</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="title" id="title">
+        </div>
+    </div>
 	<div class="form-group">
-		<label for="message" class="col-sm-2 control-label">Message</label>
+		<label for="body" class="col-sm-2 control-label">Message Body</label>
 		<div class="col-sm-10">
-			<textarea class="form-control" rows="4" name="message"></textarea>
+			<textarea class="form-control" rows="4" id="body" name="body"></textarea>
 		</div>
 	</div>
 	
