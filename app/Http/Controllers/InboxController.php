@@ -15,7 +15,7 @@ class InboxController extends Controller
     {
         //
         $user = \Auth::user();
-        return view('inbox', ['messages' => $user->inbox]);
+        return view('user/inbox', ['messages' => $user->inbox]);
 
 
     }

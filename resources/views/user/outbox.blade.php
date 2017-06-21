@@ -13,14 +13,11 @@ Navbars
 <div class="row">
 <div class="col-md-1">
 <ul>
-<li>this</li>
-<li>is</li>
-<li>radio</li>
-<li>clash</li>
-<li>from</li>
-<li>a</li>
-<li>pirate</li>
-<li>satellite</li>
+<li><a href="{{url('/home')}}">Home</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/inbox')}}">Inbox</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/outbox')}}">Outbox</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/profile')--}}">Profile</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/posts')--}}">All Posts</a></li>
 </ul>
 </div>
 </div>
@@ -32,38 +29,36 @@ Navbars
 @section('content')
         <div class="col-md-8">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Sent Messages</div>
 
                 <div class="panel-body">
                     
-                        <div class="col-md-1">Left</div>
-                        <div class="col-md-8">
-                        <div class="panel-body">
-<div class="row">
-<div class="col-md-12">
-<ul>
-<li>Inbox</li>
-</ul>
-<table class="table">
-<tr>
-<th>title:</th>
-<th>date:</th>
-<th>receiver:</th>
-<th>status:</th>
-</tr>
+                      
+<table id="outboxTable" class="table table-condensed table-hover table-striped display">
+<thead>
+    <tr>
+        <th>title:</th>
+        <th>date:</th>
+        <th>sent to:</th>
+        <th>status:</th>
+    </tr>
+</thead>
+<tbody>
 @foreach ($messages as $message)
 <tr>
-<td>{{$message->title}}<td>
-<td>{{$message->created_at}}</td>
-<td>{{App\User::find($message->receiver_id)->email}}</td>
-<td>{{$message->status}}</td>
+    <td><a href="{{url('user/'.\Auth::user()->id.'/message/'.$message->id)}}">{{$message->title}}</a></td>
+    <td>{{$message->created_at}}</td>
+    <td>{{App\User::find($message->receiver_id)->email}}</td>
+    <td>{{$message->status}}</td>
 </tr>
 @endforeach
-    </table>
-
-
+</tbody>
+</table>
 </div>
 </div>
+</div>
+</div>
+
 </div>
                         </div>
                         <div class="col-md-1">Right</div>
@@ -87,7 +82,11 @@ Navbars
                 <li><a href="{{ route('register') }}">Register</a></li>
 @else
                 <li>{{Auth::user()->email}}</li>
-                <li></li>
+<li><a href="{{url('/home')}}">Home</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/inbox')}}">Inbox</a></li>
+<li><a href="{{url('user/'.\Auth::user()->id.'/outbox')}}">Outbox</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/profile')--}}">Profile</a></li>
+<li><a href="{{--route('user/'.\Auth::user()->id.'/posts')--}}">All Posts</a></li>
 
 @endif
 
@@ -105,12 +104,13 @@ Latest Posts
 <div class="col-md-12">
 
 <table>
+<tbody>
 @foreach(\App\Post::all()->chunk(15)->last() as $post)
 <tr>
 <td><strong>{{$post->title}}</strong> <u>{{$post->created_at}}</u></td>
 </tr>
 @endforeach
-
+</tbody>
 </table>
 </div>
 </div>
@@ -125,3 +125,10 @@ Latest Posts
 
 
 </div>
+
+@section('appscripts')
+<script type="text/javascript" src="{{ asset('app/outbox.js')}}" ></script>
+<script>
+outbox.init();
+</script>
+@endsection

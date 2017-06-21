@@ -69,7 +69,11 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{url('/home')}}">Home</a>
+<a href="{{url('user/'.\Auth::user()->id.'/inbox')}}">Inbox</a>
+<a href="{{url('user/'.\Auth::user()->id.'/outbox')}}">Outbox</a>
+<a href="{{--route('user/'.\Auth::user()->id.'/profile')--}}">Profile</a>
+<a href="{{--route('user/'.\Auth::user()->id.'/posts')--}}">All Posts</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>

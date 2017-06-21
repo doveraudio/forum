@@ -9,15 +9,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <script  type="text/javascript"  src="{{ URL::asset('js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('lib/DataTables/datatables.min.js') }}"></script>
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ asset('lib/DataTables/datatables.css') }}"/>
 
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+       
     </script>
 </head>
 <body>
@@ -83,6 +86,13 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+
+    
+    <script  type="text/javascript" src="{{ URL::asset('js/bootstrap.js') }}">
+    
+    </script>    
+  
+    
+@yield('appscripts')
 </body>
 </html>

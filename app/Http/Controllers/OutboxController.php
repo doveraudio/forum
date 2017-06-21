@@ -16,7 +16,7 @@ class OutboxController extends Controller
     {
         //
         $user = \Auth::user();
-        return view('outbox', ['messages' => $user->outbox]);
+        return view('user/outbox', ['messages' => $user->outbox]);
 
 
     }

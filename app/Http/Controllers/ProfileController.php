@@ -76,6 +76,8 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
+
+        return view('user/editprofile', ['user' => \Auth::user()]);
     }
 
     /**
@@ -89,7 +91,7 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $profile = Profile::find($id);
+        $profile = \App\Profile::find($id);
         
         $profile->user_id       = $request->input('user_id');
         $profile->image_id      = $request->input('image_id');
