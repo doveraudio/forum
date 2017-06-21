@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function index()
     {
         //
-        return Index::all();
+        return \App\Index::all();
     }
 
     /**
@@ -37,7 +37,7 @@ class IndexController extends Controller
     public function store(Request $request)
     {
         //
-        $index = Index::create([
+        $index = \App\Index::create([
 
                 "created_by" => $request->input("created_by"),
                 "title"      => $request->input("title"),
@@ -56,7 +56,7 @@ class IndexController extends Controller
     public function show($id)
     {
         //
-        return Index::find($id);
+        return \App\Index::find($id);
     }
 
     /**
@@ -80,7 +80,7 @@ class IndexController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $index = Index::find($id);
+        $index = \App\Index::find($id);
         
         $index->created_by = $request->input('created_by');
         
@@ -102,7 +102,7 @@ class IndexController extends Controller
     public function destroy($id)
     {
         //
-        Index::delete($id);
+        \App\Index::delete($id);
 
     }
 }

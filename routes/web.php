@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -21,7 +19,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/inbox', 'InboxController@index');
 Route::get('/outbox', 'OutboxController@index');
 Route::get('forum/{id}', 'ForumController@show');
-
+Route::get('/index/{id}', 'IndexController@show');
 Route::get('forum/{forum_id}/topic/{id}', 'TopicController@show');
 Route::get('forum/{forum_id}/topic/{topic_id}/thread/{thread_id}', 'ThreadController@show');
 Route::get('forum/{forum_id}/topic/{topic_id}/thread/{thread_id}/posts', 'PostController@index');

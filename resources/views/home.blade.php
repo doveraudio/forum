@@ -13,14 +13,7 @@ Navbars
 <div class="row">
 <div class="col-md-1">
 <ul>
-<li>this</li>
-<li>is</li>
-<li>radio</li>
-<li>clash</li>
-<li>from</li>
-<li>a</li>
-<li>pirate</li>
-<li>satellite</li>
+<li></li>
 </ul>
 </div>
 </div>
@@ -44,33 +37,8 @@ Navbars
 <ul>
 <li>Index</li>
 @foreach ($indexes as $index)
-
-<li>{{$index->title}}</li>
-
-<ul>
-<li>Forum</li>
-    @foreach ($index->forums as $forum)
-    <li>{{$forum->title}}</li>
-    <ul>
-    <li>Topic</li>
-        @foreach ($forum->topics as $topic)
-    <li>{{$topic->title}}</li>
-        <ul>
-        <li>Thread</li>
-            @foreach ($topic->threads as $thread)
-            <li>{{$thread->title}}</li>
-                <ul>
-                @foreach ($thread->Posts->take(3) as $post)
-                    <li>{{$post->body}}</li>
-                @endforeach
-                </ul>
-            @endforeach
-        </ul>
-        @endforeach
-        </ul>    
-    @endforeach
-    </ul>
-
+<a href="/index/{{$index->id}}">{{$index->title}}<a/>
+<br>
 @endforeach
 </div>
 </div>
